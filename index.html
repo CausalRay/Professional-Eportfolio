@@ -7,8 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="app.js"></script>
+    <script src="index.js"></script>
     <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+    <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("2DcCIaf_UdiUt65Q2");
+       })();
+    </script>
 </head>
 
 <body>
@@ -22,30 +30,29 @@
                     <a href="#" class="
                     nav_link--anchor 
                     link_hover-effect 
-                    link_hover-effect--black
+                    link_hover--effect-black
                     ">About</a>
                 </li>
                 <li class="nav_link">
                     <a href="#" class="
                     nav_link--anchor 
                     link_hover-effect 
-                    link_hover-effect--black
+                    link_hover--effect-black
                     ">Projects</a>
                 </li>
-                <li class="nav_link">
+                <li class="nav_link" onclick="toggleModal()">
                     <a href="#" class="
                     nav_link--anchor 
                     link_hover-effect 
-                    link_hover-effect--black
+                    link_hover--effect-black
                     ">Contact</a>
                 </li>
 
-                <li class="nav_link click">
-                    <a href="#" class="
+                <li class="nav_link click" >
+                    <a href="#" 
+                    onclick="toggleContrast()"
+                    class="
                     nav_link--anchor 
-                    link_hover-effect 
-                    link_hover-effect--black
-                
                     "><i class="fas fa-adjust "></i></a>
                 </li>
 
@@ -55,34 +62,249 @@
         <header class="header">
             <div class="header_content">
                 <h1 class="title">Hey</h1>
-                <h1 class="title" ><span class="purple">I'm Rayson.</span></h1>
-                <p class="header_para">I'm an aspiring <span class="purple">Frontend Software Engineer</span> with a strong
-                    passion for building responsive and performant web applications.
+                <h1 class="title"><span class="purple">I'm Rayson.</span></h1>
+                <p class="header_para">I'm an aspiring <span class="purple">Frontend Software Engineer</span> with a
+                    strong
+                    passion for building <span class="purple">responsive</span> and <span class="purple">performant</span> web applications.
                     <br>
-                    Here's a bit more <span class="purple">about me.</span>
+                    Here's a bit more <span class="purple click" onclick="toggleModal()">about me.</span>
                 </p>
                 <div class="social_list">
-                    <a href="https://www.linkedin.com/in/rayson-thow-114067175/" target="_blank" class="social_link click">
-                        <i class="fab fa-linkedin-in"></i> 
+                    <a href="https://www.linkedin.com/in/rayson-thow-114067175/" target="_blank"
+                        class="social_link click">
+                        <i class="fab fa-linkedin-in"></i>
                     </a>
 
                     <a href="https://github.com/CausalRay" target="_blank" class="social_link click">
-                        <i class="fab fa-github"></i> 
+                        <i class="fab fa-github"></i>
                     </a>
 
                     <a href="assets/" target="_blank" class="social_link click">
-                        <i class="fas fa-file-pdf"></i> 
+                        <i class="fas fa-file-pdf"></i>
                     </a>
                 </div>
-                </div>
+            </div>
         </header>
-<button class="mail_btn click">
-    <i class="fas fa-envelope"></i>
-</button>
-<a href="#projects" class="scroll">
-    <div class="scroll_icon click"></div>
-</a>
+        <button class="mail_btn click" onclick="toggleModal()">
+            <i class="fas fa-envelope"></i>
+        </button>
+        <a href="#projects" class="scroll">
+            <div class="scroll_icon click"></div>
+        </a>
+
+        <div class="modal">
+            <div class="modal_half modal_about">
+                <h3 class="modal_title modal_title--about">
+                    Here's abit about me.
+                </h3>
+                <h4 class="modal_subtitle modal_title--about">
+                    <p class="modal_para">
+                        I'm a 22 year-old Singaporean who has a <span class="purple">strong passion</span> for
+                        developing websites with great <span class="purple">user experiences.</span>
+                        <br>
+                        <br>
+                        I am currently studying in university but during my leisure time, I create web applications
+                        projects that are <span class="purple">visually aesthetic</span> and <span class="purple">highly
+                            responsive.</span>
+                    </p>
+
+                    <h3 class="language_stack"><span class="purple">My Language Stack: </span></h3>
+                    <div class="modal_languages">
+
+                        <figure class="modal_language">
+                            <img src="./assets/html.png" class="modal_language--image" alt="">
+                            <span class="language_name">HTML</span>
+                        </figure>
+
+                        <figure class="modal_language">
+                            <img src="./assets/css.png" class="modal_language--image css" alt="">
+                            <span class="language_name">CSS</span>
+                        </figure>
+
+                        <figure class="modal_language">
+                            <img src="./assets/js.png" class="modal_language--image" alt="">
+                            <span class="language_name">JAVASCRIPT</span>
+                        </figure>
+
+                        <figure class="modal_language">
+                            <img src="./assets/react.png" class="modal_language--image" alt="">
+                            <span class="language_name">REACT</span>
+                        </figure>
+
+                    </div>
+                </h4>
+            </div>
+
+            <div class="modal_half modal_contact">
+                <i class="fas fa-times modal_exit click" onclick="toggleModal()"></i>
+                <h3 class="modal_title modal_title-contact">
+                    Let's have a chat!
+                </h3>
+
+                <h3 class="modal_subtitle modal_subtitle-contact">
+                    I'm currently open to new opportunities!
+                </h3>
+                <form id="contact__form" onsubmit="contact(event)">
+                    <div class="form__item">
+                        <label class="form__item--label">Name</label>
+                        <input type="text" class="input" name="user_name"></input>
+                    </div>
+
+                    <div class="form__item">
+                        <label class="form__item--label">Email</label>
+                        <input type="email" class="input" name="user_email"></input>
+                    </div>
+
+                    <div class="form__item">
+                        <label class="form__item--label">Message</label>
+                        <textarea type="text" class="input" name="user_message"></textarea>
+                    </div>
+                    <button id="contact_submit" class="form_submit">Send it my way!</button>
+                </form>
+                <div class="modal_overlay modal_overlay--loading">
+                    <i class="fas fa-spinner"></i>
+                </div>
+                <div class="modal_overlay modal_overlay--success">
+                    Thanks for the message! Looking to speak to you soon!
+                </div>
+            </div>
+            
+        </div>
     </section>
+
+    <section id="projects">
+        <div class="container">
+            <div class="row">
+                <h1 class="section_title">
+                    Here are some of my <span class="purple">projects</span>
+                </h1>
+                <ul class="project_list">
+                    <li class="project">
+                        <div class="project_wrapper">
+                            <img src="./assets/blinker mockup.png" class="project_image" alt="">
+                            <div class="project_wrapper-bg"></div>
+                            <div class="project_description">
+                                <h3 class="project_description--title">
+                                    Car Sales Projects
+                                </h3>
+                                <h4 class="project_description--sub-title">
+                                    HTML, CSS, JavaScript
+                                </h4>
+                                <p class="project_description--para">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus minus, mollitia
+                                    consequuntur harum delectus earum aspernatur deleniti laudantium? Adipisci incidunt
+                                    consequatur et? Totam soluta aspernatur, magni ipsam facilis neque quaerat.
+                                </p>
+                                <div class="project_description--links">
+                                    <a href="https://github.com/CausalRay" class="project_description--link">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+
+                                    <a href="https://github.com/CausalRay" class="project_description--link">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="project">
+                        <div class="project_wrapper">
+                            <img src="./assets/blinker mockup.png" class="project_image" alt="">
+                            <div class="project_wrapper-bg"></div>
+                            <div class="project_description">
+                                <h3 class="project_description--title">
+                                    Car Sales Projects
+                                </h3>
+                                <h4 class="project_description--sub-title">
+                                    HTML, CSS, JavaScript
+                                </h4>
+                                <p class="project_description--para">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus minus, mollitia
+                                    consequuntur harum delectus earum aspernatur deleniti laudantium? Adipisci incidunt
+                                    consequatur et? Totam soluta aspernatur, magni ipsam facilis neque quaerat.
+                                </p>
+                                <div class="project_description--links">
+                                    <a href="https://github.com/CausalRay" class="project_description--link">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+
+                                    <a href="https://github.com/CausalRay" class="project_description--link">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="project">
+                        <div class="project_wrapper">
+                            <img src="./assets/blinker mockup.png" class="project_image" alt="">
+                            <div class="project_wrapper-bg"></div>
+                            <div class="project_description">
+                                <h3 class="project_description--title">
+                                    Car Sales Projects
+                                </h3>
+                                <h4 class="project_description--sub-title">
+                                    HTML, CSS, JavaScript
+                                </h4>
+                                <p class="project_description--para">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus minus, mollitia
+                                    consequuntur harum delectus earum aspernatur deleniti laudantium? Adipisci incidunt
+                                    consequatur et? Totam soluta aspernatur, magni ipsam facilis neque quaerat.
+                                </p>
+                                <div class="project_description--links">
+                                    <a href="https://github.com/CausalRay" class="project_description--link">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+
+                                    <a href="https://github.com/CausalRay" class="project_description--link">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="row footer_row">
+                <figure>
+                    <img src="./assets/RT logo.png" class="footer_logo" alt="">
+                </figure>
+                <div class="footer_social--list">
+                    <a href="https://github.com/CausalRay" class="footer_social--link
+            link_hover-effect
+            link_hover--effect-white">
+                        GitHub
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/rayson-thow-114067175/?originalSubdomain=sg" class="footer_social--link
+            link_hover-effect
+            link_hover--effect-white">
+                        Linkedin
+                    </a>
+
+                    <a href="#" class="footer_social--link
+                link_hover-effect
+                link_hover--effect-white">
+                        Contact
+                    </a>
+
+                    <a href="#" class="footer_social--link
+                link_hover-effect
+                link_hover--effect-white">
+                        Resume
+                    </a>
+                </div>
+                <div class="footer_copyright"> Copyright &copy; 2022 Rayson Thow</div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
