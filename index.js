@@ -1,6 +1,6 @@
 let isModalOpen = false
 let contrastToggle = false
-const scaleFactor = 1/20
+const scaleFactor = 1/15
 
 function moveBackground(event) {
     const shapes = document.querySelectorAll(".shape")
@@ -14,14 +14,23 @@ function moveBackground(event) {
     }
 }
 
+
+
+
 function toggleContrast() {
     contrastToggle = !contrastToggle;
     if (contrastToggle) {
         document.body.classList += " dark-theme"
+        document.body.classList += " night_sky"
+
+        
     }
 
     else {
         document.body.classList.remove("dark-theme")
+        document.body.classList.remove("night_sky")
+
+        
     }
 }
 
@@ -58,6 +67,6 @@ function toggleModal() {
         return document.body.classList.remove("modal--open")
     }
     isModalOpen = true;
-document.body.classList += "modal--open"
+document.body.classList += " modal--open"
 }
 

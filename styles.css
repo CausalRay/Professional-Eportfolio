@@ -241,14 +241,41 @@ background-color: #242424;
 
 }
 
+
+.hot_air--balloon{
+height: 400px;
+width: 420px;
+position: absolute;
+right: 15%;
+bottom: 25%;
+animation: flying 4000ms infinite ease-in-out; 
+}
+
+@keyframes flying{
+    
+    0%{
+        transform: translateY(0);
+            }
+
+    50%{
+        transform: translateY(-30%);
+    }
+
+    100%{
+        transform: translateY(0);
+            }
+
+}
+
+
+
 .animation_wrapper {
     height: 450px;
     position: relative;
-    display: flex;
+    display: none;
     align-items: flex-end;
     justify-content: flex-end;
     animation: orbit 10000ms linear infinite ;
-    
 }
 
 
@@ -256,13 +283,17 @@ background-color: #242424;
 .earth {
     position: absolute;
     right:-30px;
+    display: none;
     top:25%;
     height: 220px;
     width: 220px; 
 }
 
 .rocket {
+    display: none;
+    bottom: -300px;
     right: -40px;
+    bottom: -200px;
     height: 80px;
     width: 80px; 
     transform: rotate(45deg);
@@ -697,10 +728,11 @@ footer {
 color: white;
 }
 
-/* SHAPES */
+/* DAY */
 
 .shape {
     position: fixed;
+    overflow: hidden;
 }
 
 .shape--0 {
@@ -728,6 +760,10 @@ color: white;
     left: 50vw;
 }
 
+.shape--5 {
+    top: 50vh;
+    left: 80vw;
+}
 
 .shape--6 {
     top: 80vh;
@@ -744,14 +780,65 @@ color: white;
     left: 80vw;
 }
 
+.night_sky .day_shapes,
+.night_sky .hot_air--balloon{
+    display: none;
+}
+
+
+/* NIGHT */ 
+    
+.night_shapes {
+    display: none;
+}
+
+.night_sky .night_shapes {
+    display: flex;
+}
+
+.night_sky .animation_wrapper {
+    display: flex;
+}
+
+.plane {
+    margin-left: 200px;
+}
+
+.planet {
+    margin-left: 112px;
+}
+
+.night_sky .rocket,
+.night_sky .earth
+ {
+    display:block;
+}
+
+.day_shapes,
+.night_shapes {
+    height: 40px;
+    width: 40px;   
+}
 
 /* Small Phones, Tablets, Large Smart phones */ 
+
+
+
+@media (max-width: 1550px) {
+    .animation, .up {
+        display: none;
+    }
+}
 
 @media (max-width: 768px){
     .title {
         font-size: 80px;
     }
 
+    .shape {
+        display: none !important;
+       }
+       
     .header_para {
         font-size: 20px;
     }
@@ -774,6 +861,10 @@ color: white;
 /* Small phones */ 
 
 @media (max-width: 480px){
+   .shape {
+    display: none !important;
+   }
+   
     .title {
         font-size: 52px;
     }
